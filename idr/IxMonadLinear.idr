@@ -1,10 +1,6 @@
 module IxMonadLinear
 
--- Idris QT syntax driving me nuts. Linear Haskell is much nicer!
--- I need a lolipop this (1 _ : ) is just dreadful ergonomically.
---  
--- I got this working in Haskell in half the time and it looks better - even
--- without unicode.
+
 
 ||| Conor's DVDDrive indexed monad example linearised a.k.a. spot the lolipops?
 
