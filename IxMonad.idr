@@ -1,5 +1,8 @@
 module IxMonad
 
+-- I tried to do IxMonad interface and implementation for this but gave up
+-- in despair.
+
 {-
 interface IxMonad m where
   ireturn : a -> m i i a
