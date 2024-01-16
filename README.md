@@ -6,7 +6,7 @@ Maybe we can do all the state controlled stuff in QTT
 or do we really need indexed monads? If its an eDSL we are after
 then the do notation is nice.
 
-This was inspired by [https://github.com/zamdzhiev/Qimaera](Qimaera)
+This was inspired by [Qimaera](https://github.com/zamdzhiev/Qimaera)
 
 So far we have a linear version of Conor's DVDDrive example from SO.
 
