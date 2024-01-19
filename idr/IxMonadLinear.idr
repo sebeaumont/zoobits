@@ -12,7 +12,7 @@ data Thing = Unit
 
 data State = Empty | Full 
 
-data FK : i -> j -> Type -> Type where
+data FK : i -> j -> k -> Type where
   FKreturn : a -> FK i i a
   FKinsert : Thing -> FK Full k a -> FK Empty k a
   
@@ -20,11 +20,9 @@ data FK : i -> j -> Type -> Type where
 implementation IxMonad FK where
   ireturn = FKreturn
   ibind (FKreturn a) k = k a
-  ibind (FKinsert a j) k = ?fk 
-  -- this don't TC: FKinsert a (ibind j k)
+  ibind (FKinsert a j) k = ?x -- FKinsert a (ibind j k)
   -- seems like Idris needs some more info about k here.
-  -- and the proof explorer don't work in emacs. Ah well. 
-  -- at least the concrete IxMonadLinearLollipop is OK.
+
   
   
   
