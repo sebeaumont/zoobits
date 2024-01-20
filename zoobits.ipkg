@@ -1,22 +1,24 @@
 package zoobits
--- version =
+version = 0.0.1
 authors = "Simon Beaumont"
--- maintainers =
--- license =
--- brief =
--- readme =
+maintainers = "datalligator@icloud.com"
+license = "BSD3"
+brief = "Exploring the stuff from Qimaera"
+readme = "README.org"
 -- homepage =
 -- sourceloc =
 -- bugtracker =
 
 -- the Idris2 version required (e.g. langversion >= 0.5.1)
--- langversion
+langversion >= 0.7.0
 
 -- packages to add to search path
 depends = linear
 
 -- modules to install
--- modules =
+modules = Math.Complex
+        , Control.Monad.IxMonad
+        , Control.Monad.Linear.IxMonad
 
 -- main file (i.e. file to load at REPL)
 -- main =
