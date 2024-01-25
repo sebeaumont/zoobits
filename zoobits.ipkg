@@ -1,5 +1,5 @@
 package zoobits
-version = 0.0.1
+version = 0.0.2
 authors = "Simon Beaumont"
 maintainers = "datalligator@icloud.com"
 license = "BSD3"
@@ -17,8 +17,10 @@ depends = linear
 
 -- modules to install
 modules = Math.Complex
-        , Control.Monad.IxMonad
-        , Control.Monad.Linear.IxMonad
+        , Control.Monad.Indexed
+        , Control.Monad.Indexed.Examples.DVDDrive       
+        , Control.Monad.Indexed.Linear
+        , Control.Monad.Indexed.Linear.Examples.DVDDrive
 
 -- main file (i.e. file to load at REPL)
 -- main =

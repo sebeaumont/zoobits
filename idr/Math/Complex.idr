@@ -34,7 +34,8 @@ implementation (Fractional ty, Neg ty, Num ty) => Fractional (Complex ty) where
     in C (r/s) (i/s)
   z / w = z * recip w
 
--- Mixed arithmetic scale from left and right.?
+
+-- Scalar arithmetic scale from left (and right..?)
 
 scale : Num a => a -> Complex a -> Complex a
 scale x (C r i) = C (r*x) (i*x)
@@ -47,13 +48,16 @@ implementation (Ord ty, Num ty, Show ty) => Show (Complex ty) where
     sign : ty -> String
     sign i = if i > 0 then "+" else ""
 
+-- | Phasor representations makes multiplication easier (add phases
+-- | multiply modulii)
 record Phasor f where
   constructor P
   modulus : f
   phase: f
 
--- TODO make this more general given Idris math needs to be more generic!
+-- TODO: make this more general: given Idris math needs to be more generic!
 -- we only have trig functions for Doubles (due to scheme library I guess)
+-- TODO: really like Rationals (Q) as we can prove stuff about them more easily.
  
 phasor : Complex Double -> Phasor Double
 phasor z@(C x y) = P (sqrt $ abs2 z) (atan $ y / x)
