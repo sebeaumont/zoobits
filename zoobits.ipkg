@@ -16,7 +16,9 @@ langversion >= 0.7.0
 depends = linear
 
 -- modules to install
-modules = Math.Complex
+modules = Data.Rational
+        , Math.Complex
+        , Math.Complex.Rational
         , Control.Monad.Indexed
         , Control.Monad.Indexed.Examples.DVDDrive       
         , Control.Monad.Indexed.Linear
