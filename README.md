@@ -34,10 +34,13 @@ from/by beautiful Agda libraries.
 There's a general idea of a eDSL for linear algebra and (quantum) computation
 and machine learning lurking. 
 
+Might go off on another tangent if I can grok this paper on Clifford
+algebra based approach[^4].
+
 _________________________
 Primary References:
 
 [^1]: [Type-safe Quantum Programming in Idris](https://arxiv.org/abs/2111.10867)
 [^2]: [The Kleisli Arrows of Outrageous Fortune](https://personal.cis.strath.ac.uk/conor.mcbride/Kleisli.pdf)
 [^3]: [Quantitive Type Theory in Practice](https://arxiv.org/abs/2104.00480)
-
+[^4]: [Quantum Computing Based on Complex Clifford Algebras](https://arxiv.org/abs/2201.02246)
