@@ -1,37 +1,38 @@
 ||| Rational numbers 
-module Data.Rational
+module Math.Rational
 
 %default total
+
 ||| Rationals based on Integers
-||| must ensure that the denominator is positive.
 export
 record Rational where
   constructor Ratio
   numerator   : Integer
   denominator : Integer  -- Must be positive
 
-{- TODO
-data IsPositive : Integer -> Type where
--}
-public export  
-isPositive : Integer -> Type
-isPositive i = i > 0 = True
+-- Since we know that @b@ is +ve then this is safe.
 
 private 
 gcd : Integer -> Integer -> Integer
 gcd a 0 = a
 gcd a b = gcd b $ assert_smaller b (a `mod` b)
 
--- This is the `unsafe` version we use on the assumption that b is
--- always positive. The public constructor requires a proof.
+-- This is the `unsafe` version we use internally with the assurance that b is
+-- always positive as the public constructor for Rational requires a proof.
 
 private
 normalize : Integer -> Integer -> (Integer, Integer) 
 normalize a b = let d = gcd a b in (div a d, div b d)
 
+||| Equality theorem for positive `Integers`
 
+public export  
+isPositive : Integer -> Type
+isPositive i = i > 0 = True
 
-||| You Need a proof that denominator is not -ve 
+||| Make a rational number.
+|||  You need a proof that the denominator `Integer` is positve. 
+
 public export
 rational : (a : Integer) -> (b : Integer) -> {auto p : isPositive b} -> Rational
 rational _ 0 = Ratio 0 1
@@ -39,11 +40,14 @@ rational a b = let (n, d) = normalize a b in Ratio n d
 
 export
 infixl 9 //
+
+||| Infix operator way of writing a ratio
+|||  You need a proof that the denominator `Integer` is positve. 
 export
 (//) : (a : Integer) -> (b : Integer) -> {auto p : isPositive b} -> Rational
 (//) = rational
 
-public export
+export
 implementation Show Rational where
   show q = (show q.numerator) ++ "/" ++ (show q.denominator)
 
@@ -92,7 +96,10 @@ export
 rationalToDouble : Rational -> Double
 rationalToDouble (Ratio p q) = (fromInteger p) / (fromInteger q)
 
--- These approximations should be ok 
+-- We add a few irrationals and transcendental numbers to the party
+-- These approximations should be ok pro tem.
+-- TODO provide the series/order and return the residual (or specify it) 
+-- in a separate module.
 public export
 data Constant = Pi | E | R2 | R3
 

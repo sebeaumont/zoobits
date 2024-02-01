@@ -16,7 +16,7 @@ langversion >= 0.7.0
 depends = linear
 
 -- modules to install
-modules = Data.Rational
+modules = Math.Rational
         , Math.Complex
         , Math.Complex.Rational
         , Control.Monad.Indexed
