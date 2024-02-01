@@ -11,29 +11,29 @@ record Rational where
   denominator : Integer  -- Must be positive
 
 -- Since we know that @b@ is +ve then this is safe.
-
+--  At least we MUST KNOW THAT @b@ is not 0! 
 private 
 gcd : Integer -> Integer -> Integer
 gcd a 0 = a
 gcd a b = gcd b $ assert_smaller b (a `mod` b)
 
--- This is the `unsafe` version we use internally with the assurance that b is
+-- This is the `unsafe` version we use internally with the assurance that @b@ is
 -- always positive as the public constructor for Rational requires a proof.
 
 private
 normalize : Integer -> Integer -> (Integer, Integer) 
 normalize a b = let d = gcd a b in (div a d, div b d)
 
-||| Equality theorem for positive `Integers`
+||| Equality theorem for positive integers
 
 public export  
 isPositive : Integer -> Type
 isPositive i = i > 0 = True
 
 ||| Make a rational number.
-|||  You need a proof that the denominator `Integer` is positve. 
+|||  You need a proof that the denominator is positve. 
 
-public export
+export
 rational : (a : Integer) -> (b : Integer) -> {auto p : isPositive b} -> Rational
 rational _ 0 = Ratio 0 1
 rational a b = let (n, d) = normalize a b in Ratio n d
@@ -42,7 +42,7 @@ export
 infixl 9 //
 
 ||| Infix operator way of writing a ratio
-|||  You need a proof that the denominator `Integer` is positve. 
+|||  You need a proof that the denominator is positve. 
 export
 (//) : (a : Integer) -> (b : Integer) -> {auto p : isPositive b} -> Rational
 (//) = rational

@@ -7,44 +7,47 @@ record Complex k where
   real : k
   imag : k
 
+||| Make a complex number with real and imaginary parts
 export
 complex : k -> k -> Complex k
 complex = C
 
+||| Real part of complex number
 export 
 re : Complex k -> k
 re = real
 
+||| Imaginary part of complex number
 export 
 im : Complex k -> k
 im = imag
 
-
+||| Complex conjugage
 export
 conj : Neg ty => Complex ty -> Complex ty  
 conj z = C z.real (negate z.imag)
 
--- simple (scalar) version see below
+||| Squared absolute (scalar) value of complex number (modulus)
 export
 abs2 : Num ty => Complex ty -> ty
 abs2 z = z.real * z.real + z.imag * z.imag
 
-public export
+export
 implementation Eq ty => Eq (Complex ty) where
   z == w = real z == real w && imag z == imag w
 
-public export   
+export   
 implementation (Neg ty, Num ty) => Num (Complex ty) where
   z * w = C (z.real*w.real - z.imag*w.imag) (z.real*w.imag + z.imag*w.imag)
   z + w = C (z.real + w.real) (z.imag + w.imag)
   fromInteger i = C (fromInteger i) 0 
   
-public export
+export
 implementation Neg ty => Neg (Complex ty) where
   negate (C r i) = C (-r) (-i)
   z - w = C (z.real - w.real) (z.imag - w.imag)
 
-public export
+export
 implementation (Fractional ty, Neg ty, Num ty) => Fractional (Complex ty) where
   recip z = 
     -- do simple arithetic so we don't have a circular definition,
@@ -54,16 +57,17 @@ implementation (Fractional ty, Neg ty, Num ty) => Fractional (Complex ty) where
     in C (r/s) (i/s)
   z / w = z * recip w
 
--- Scalar arithmetic scale from left (and right..?)
-
+||| Scale complex number from left
+export
 scale : Num a => a -> Complex a -> Complex a
 scale x (C r i) = C (r*x) (i*x)
 
+||| scale complex number from left
 export
 (*) : Num a => a -> Complex a -> Complex a
 (*) = scale
 
-public export
+export
 implementation (Ord ty, Num ty, Show ty) => Show (Complex ty) where
   show (C r i) = "(" ++ show r ++ sign i ++ show i ++ "i)" where
     sign : ty -> String

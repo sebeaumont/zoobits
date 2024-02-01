@@ -19,6 +19,7 @@ depends = linear
 modules = Math.Rational
         , Math.Complex
         , Math.Complex.Rational
+        , Data.Algebra
         , Control.Monad.Indexed
         , Control.Monad.Indexed.Examples.DVDDrive       
         , Control.Monad.Indexed.Linear
