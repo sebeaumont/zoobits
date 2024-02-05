@@ -62,14 +62,11 @@ export
 scale : Num a => a -> Complex a -> Complex a
 scale x (C r i) = C (r*x) (i*x)
 
-||| scale complex number from left
-export
-(*) : Num a => a -> Complex a -> Complex a
-(*) = scale
 
 export
 implementation (Ord ty, Num ty, Show ty) => Show (Complex ty) where
   show (C r i) = "(" ++ show r ++ sign i ++ show i ++ "i)" where
     sign : ty -> String
     sign i = if i > 0 then "+" else ""
+  
 

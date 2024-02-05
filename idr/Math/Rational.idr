@@ -6,7 +6,7 @@ module Math.Rational
 ||| Rationals based on Integers
 export
 record Rational where
-  constructor Ratio
+  constructor Q
   numerator   : Integer
   denominator : Integer  -- Must be positive
 
@@ -35,8 +35,8 @@ isPositive i = i > 0 = True
 
 export
 rational : (a : Integer) -> (b : Integer) -> {auto p : isPositive b} -> Rational
-rational _ 0 = Ratio 0 1
-rational a b = let (n, d) = normalize a b in Ratio n d
+rational _ 0 = Q 0 1
+rational a b = let (n, d) = normalize a b in Q n d
 
 export
 infixl 9 //
@@ -62,19 +62,19 @@ implementation Num Rational where
     let num = p.numerator * q.numerator
         den = p.denominator * q.denominator
         (n, d) = normalize num den
-    in Ratio n d
+    in Q n d
     
   p + q = 
     let quot = p.denominator * q.denominator
         numr = p.numerator * q.denominator + q.numerator * p.denominator
         (n, d) = normalize numr quot
-    in Ratio n d
+    in Q n d
   
   fromInteger q = rational q 1
 
 export
 implementation Neg Rational where
-  negate q  = Ratio (negate q.numerator) q.denominator
+  negate q  = Q (negate q.numerator) q.denominator
   q - r = q + (negate r)
 
 signum : Integer -> Integer
@@ -82,7 +82,7 @@ signum i = if i < 0 then -1 else 1
 
 export
 implementation Fractional Rational where
-  recip q = Ratio (q.denominator * (signum q.numerator)) (abs q.numerator) 
+  recip q = Q (q.denominator * (signum q.numerator)) (abs q.numerator) 
   q / r = q * recip r
 
 export 
@@ -94,7 +94,7 @@ implementation Ord Rational where
     
 export
 rationalToDouble : Rational -> Double
-rationalToDouble (Ratio p q) = (fromInteger p) / (fromInteger q)
+rationalToDouble (Q p q) = (fromInteger p) / (fromInteger q)
 
 -- We add a few irrationals and transcendental numbers to the party
 -- These approximations should be ok pro tem.
