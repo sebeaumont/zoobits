@@ -2,13 +2,6 @@ module Math.Algebra.Linear.VectorSpace
 
 import public Data.Vect
 
-{-
--- transpose already defined in Data.Vect
-transpose : { n : _ } -> Vect m (Vect n a) -> Vect n (Vect m a)
-transpose [] = replicate n []
-transpose (x :: xs) = zipWith (::) x $ transpose xs
--}
-
 ||| Vector dot product
 export
 dotproduct : Num a => { n : _ } -> Vect n a -> Vect n a -> a

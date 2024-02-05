@@ -19,7 +19,8 @@ depends = linear
 modules = Math.Rational
         , Math.Complex
         , Math.Complex.Rational
-        , Data.Algebra
+        , Math.Algebra.Linear.VectorSpace
+        , Math.Algebra.QQ
         , Control.Monad.Indexed
         , Control.Monad.Indexed.Examples.DVDDrive       
         , Control.Monad.Indexed.Linear
