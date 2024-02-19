@@ -37,6 +37,8 @@ and machine learning lurking.
 Might go off on another tangent if I can grok this paper on Clifford
 algebra based approach[^4].
 
+The bait is taken and I'm looking as geometic algebra as a foundation now.
+
 _________________________
 Primary References:
 

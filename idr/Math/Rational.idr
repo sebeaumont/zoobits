@@ -10,8 +10,8 @@ record Rational where
   numerator   : Integer
   denominator : Integer  -- Must be positive
 
--- Since we know that @b@ is +ve then this is safe.
---  At least we MUST KNOW THAT @b@ is not 0! 
+-- Since we know that b is +ve then this is safe.
+--  At least we MUST KNOW THAT b is not 0! 
 private 
 gcd : Integer -> Integer -> Integer
 gcd a 0 = a

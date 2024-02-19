@@ -22,7 +22,7 @@ export
 im : Complex k -> k
 im = imag
 
-||| Complex conjugage
+||| Complex conjugate
 export
 conj : Neg ty => Complex ty -> Complex ty  
 conj z = C z.real (negate z.imag)

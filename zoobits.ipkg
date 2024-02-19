@@ -25,7 +25,7 @@ modules = Math.Rational
         , Control.Monad.Indexed.Examples.DVDDrive       
         , Control.Monad.Indexed.Linear
         , Control.Monad.Indexed.Linear.Examples.DVDDrive
-
+        , Proof
 -- main file (i.e. file to load at REPL)
 -- main =
 
