@@ -21,11 +21,13 @@ modules = Math.Rational
         , Math.Complex.Rational
         , Math.Algebra.Linear.VectorSpace
         , Math.Algebra.QQ
+
         , Control.Monad.Indexed
-        , Control.Monad.Indexed.Examples.DVDDrive       
         , Control.Monad.Indexed.Linear
-        , Control.Monad.Indexed.Linear.Examples.DVDDrive
-        , Proof
+
+        , Examples.Nats
+        , Examples.Control.Monad.Indexed.DVDDrive
+        , Examples.Control.Monad.Indexed.Linear.DVDDrive
 -- main file (i.e. file to load at REPL)
 -- main =
 

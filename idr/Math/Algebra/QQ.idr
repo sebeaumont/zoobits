@@ -1,5 +1,8 @@
 ||| A module of operators and vectors over the rational complex field we call QQ
 ||| which hints at the application thereof as well as referring to the field Q
+||| N.B. Matrix mangling here is not the way to go -- we need to use GA
+||| TODO: rework this using a better formalism and do that first.
+
 module Math.Algebra.QQ
 
 import Math.Complex
@@ -159,6 +162,7 @@ multScalarMatrix _ [] = []
 multScalarMatrix x (y :: ys) = multScalarVect x y :: multScalarMatrix x ys
 
 -- need some proof here...
+{-
 private
 tensorProduct' : VectorQQ n -> MatrixQQ p r -> MatrixQQ p ((S n) * r)
 tensorProduct' [x] m = multScalarMatrix x m
@@ -171,3 +175,4 @@ tensorProduct [] _ = []
 tensorProduct [v] xs = tensorProduct' v xs
 tensorProduct (v :: w :: vs) xs = 
   (tensorProduct' v xs) `catcols` (tensorProduct (v::w::vs) (w :: vs) xs)
+-}

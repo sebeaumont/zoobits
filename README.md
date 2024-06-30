@@ -16,8 +16,7 @@ So far we have a linear version of Conor's DVDDrive example from SO.
 As well as the relevant interfaces in `Idris2`.
 
 There were some Haskell versions using linear types as well but there's
-not a load of difference other than more explicit types in Idris
-(tho' no proofs for the monad laws as yet).
+not a load of difference other than more explicit types in Idris.
 
 Watch this space for more lolipops and zoo creatures. Not sure where 
 this is going but it's cool enough that we can delegate even more 

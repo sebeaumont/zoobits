@@ -7,6 +7,7 @@ module Control.Monad.Indexed
 ||| library `indexed` that provide better abstractions than this. This
 ||| was just to work it up for myself and the trick above was gleaned
 ||| from above.
+public export
 interface IxMonad x m | m where
   ireturn : {0 i : x} -> a -> m i i a
   ibind   : {0 i,j,k : x} -> m i j a -> (a -> m j k b) -> m i k b

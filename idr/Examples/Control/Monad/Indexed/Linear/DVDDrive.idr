@@ -1,9 +1,10 @@
-module Control.Monad.Indexed.Linear.Examples.DVDDrive
+module Examples.Control.Monad.Indexed.Linear.DVDDrive
 
 import Control.Monad.Indexed.Linear
 import Data.Linear.Notation 
 
-||| Conor's DVDDrive indexed monad example now with lolipops!
+||| Conor's DVDDrive indexed monad example now with lolipops! Well curly whorlies
+||| since we can't have unicode :)
 
 DVD : Type
 DVD = Unit

@@ -1,4 +1,4 @@
-module Control.Monad.Indexed.Examples.DVDDrive
+module Examples.Control.Monad.Indexed.DVDDrive
 
 import Control.Monad.Indexed
 
